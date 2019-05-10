@@ -1,0 +1,15 @@
+{
+    "id": 1,
+    "name": "Matthew",
+    "nickname": "matzh",
+    "email": "matthew@email.com",
+    "address": {
+        "street": "2248 Williams Mine Road",
+        "zipcode": "99503",
+        "city": "Anchorage",
+        "state": "Alaska"
+    },
+    "phone": "907-992-5061",
+    "avatar": "/img/avatar.jpg",
+    "registered": "26 March 2019"
+}

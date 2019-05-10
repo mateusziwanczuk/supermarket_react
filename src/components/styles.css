@@ -1,0 +1,14 @@
+html,body {
+  color: #333;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 10px;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  width: 100%;
+}
+
+select {
+  cursor: pointer;
+}
