@@ -107,6 +107,7 @@ class UserData extends React.Component {
     }
 
     render (){
+        const doInputsShow = this.state.showInput;
         return(
             <div className="user__container__left__top__userdata">
                 <span style={{fontSize: "1.2rem"}}>Registered: {this.state.authUserRegistered}</span>
@@ -123,23 +124,28 @@ class UserData extends React.Component {
                         </div>
                         <div>
                             <h4>{this.state.authUserEmail}</h4>
-                            <h4>{ this.state.user ? this.state.user.street : null }</h4>
-                            <h4>{ this.state.user ? this.state.user.city : null }</h4>
-                            <h4>{ this.state.user ? this.state.user.phone : null }</h4>
-                                <div className="change__data__container unvisible">
+                            {!doInputsShow 
+                                ? 
+                                <div>
+                                    <h4>{ this.state.user ? this.state.user.street : null }</h4>
+                                    <h4>{ this.state.user ? this.state.user.city : null }</h4>
+                                    <h4>{ this.state.user ? this.state.user.phone : null }</h4>
+                                </div> 
+                                : 
+                                <div>
                                     <input 
                                         type="text" 
                                         value={ this.state.user ? this.state.user.street : '' } 
                                         onChange={this.editAddress1}>
                                     </input>
-                                    <input 
-                                        type="text" 
-                                        value={ this.state.user ? this.state.user.city : '' } 
+                                    <input
+                                        type="text"
+                                        value={this.state.user ? this.state.user.city : ''}
                                         onChange={this.editAddress2}>
                                     </input>
-                                    <input 
-                                        type="text" 
-                                        value={ this.state.user ? this.state.user.phone : '' } 
+                                    <input
+                                        type="text"
+                                        value={this.state.user ? this.state.user.phone : ''}
                                         onChange={this.editPhoneNum}>
                                     </input>
                                     <div className="edit__buttons__container">
@@ -149,6 +155,7 @@ class UserData extends React.Component {
                                         <DeleteUser />
                                     </div>
                                 </div>
+                            }
                         </div>
                     </div>  
             </div>
