@@ -4,9 +4,14 @@ import './Basket.css';
 
 class Basket extends React.Component {
   state = {
-		basketProducts: JSON.parse(localStorage.getItem('basketProducts')),
 		redirect: false
 	};
+
+	componentDidMount(){
+		this.setState({
+			basketProducts: JSON.parse(localStorage.getItem('basketProducts')),
+		})
+	}
 
 	getProductsFromLS = () => {
 		return JSON.parse(localStorage.getItem('basketProducts'))
@@ -42,7 +47,7 @@ class Basket extends React.Component {
 				<div className="basket__container__table">
 					<table>
 						<tbody>
-							{this.getProductsFromLS !== null ?
+							{this.state.basketProducts ?
 									this.state.basketProducts.map((product) => {
 										return (
 											<tr key={product.title}>
@@ -76,7 +81,7 @@ class Basket extends React.Component {
 				<div className="basket__container__summary">
 					<span>
 						Total:&nbsp;&nbsp;&nbsp;
-							{this.getProductsFromLS !== null 
+							{this.state.basketProducts 
 								? ' $' + this.state.basketProducts
 											.map(basketProduct => basketProduct.price)
 											.reduce((a,b) => a + b, 0)

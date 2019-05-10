@@ -22,9 +22,6 @@ var config = {
   firebase.initializeApp(config);
 
 class App extends React.Component {
-	componentDidMount() {
-		localStorage.setItem('basketProducts', JSON.stringify([])) 
-	}
 	render() {
 		return (
 			<BrowserRouter>

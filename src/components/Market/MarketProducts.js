@@ -19,7 +19,6 @@ const MarketProducts = props => {
             <div className="market__product" key={product.id}>
                 <img src={product.image} alt={product.image} />
                 <div className="market__product__info">
-                    { }
                     <IconCnt onClick={ () => setItemToLS(product) }>
 						<Icon icon={shoppingCart} />
 					</IconCnt>
