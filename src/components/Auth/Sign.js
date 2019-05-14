@@ -9,7 +9,7 @@ class Sign extends React.Component {
             <div className="sign__container">
                 <div className="sign__container__components">
                     <SignIn />
-                    <SignUp />
+                    {/* <SignUp /> */}
                 </div>
             </div>
         );

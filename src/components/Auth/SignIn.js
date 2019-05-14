@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SignUp from './SignUp'
 import firebase from "firebase";
 import PropTypes from 'prop-types';
 import Avatar from '@material-ui/core/Avatar';
@@ -17,7 +18,7 @@ const styles = theme => ({
     main: {
         [theme.breakpoints.up(400 + theme.spacing.unit * 3 * 2)]: {
             width: 400
-        },
+        }
     },
     paper: {
         marginTop: theme.spacing.unit,
@@ -34,11 +35,12 @@ const styles = theme => ({
         marginTop: theme.spacing.unit * 3,
         color: 'white'
     },
-    remind: {
+    typography: {
         marginTop: theme.spacing.unit * 2,
         textAlign: 'center',
         color: 'rgb(130, 181, 201)',
-        cursor: 'pointer'
+        cursor: 'pointer',
+        fontSize: '1.3rem'
     }
 });
 
@@ -47,6 +49,7 @@ class SignIn extends Component {
         email: '',
         password: '',
         redirect: false,
+        userHasAccount: true
     };
 
     setRedirect = () => {
@@ -85,55 +88,70 @@ class SignIn extends Component {
             : alert('Wrong email address.')
     }
 
+    showRegisterPanel = () => {
+        this.setState({
+            userHasAccount: false
+        })
+    }
+
     render() {
         const { classes } = this.props;
         return (
-            <main className={classes.main}>
-                <CssBaseline />
-                <Paper className={classes.paper}>
-                    <Avatar className={classes.avatar}>
-                        <LockOutlinedIcon />
-                    </Avatar>
-                    <Typography component="h1" variant="h5">
-                        Sign in
-                    </Typography>
-                    <form className={classes.form} onSubmit={this.handleSubmit}>
-                        <FormControl margin="normal" required fullWidth>
-                            <InputLabel htmlFor="email">Email</InputLabel>
-                            <Input 
-                                id="email" 
-                                name="email"
-                                onChange={this.handleChange} 
-                            />
-                        </FormControl>
-                        <FormControl margin="normal" required fullWidth>
-                            <InputLabel htmlFor="password">Password</InputLabel>
-                            <Input 
-                                name="password" 
-                                type="password" 
-                                id="password"
-                                onChange={this.handleChange} 
-                            />
-                        </FormControl>
-                        {this.renderRedirect()}
-                        <Button
-                            type="submit"
-                            fullWidth
-                            variant="contained"
-                            color="primary"
-                            className={classes.submit}
-                        >
-                            Sign in
-                        </Button>
-                        <Typography 
-                            className={classes.remind}
-                            onClick={this.resetPassword}
-                        >
-                            I don't remember my password.
-                        </Typography>
-                    </form>
-                </Paper>
-            </main>
+            this.state.userHasAccount ?
+                (
+                    <main className={classes.main}>
+                        <CssBaseline />
+                        <Paper className={classes.paper}>
+                            <Avatar className={classes.avatar}>
+                                <LockOutlinedIcon />
+                            </Avatar>
+                            <Typography component="h1" variant="h5">
+                                Sign in
+                            </Typography>
+                            <form className={classes.form} onSubmit={this.handleSubmit}>
+                                <FormControl margin="normal" required fullWidth>
+                                    <InputLabel htmlFor="email">Email</InputLabel>
+                                    <Input 
+                                        id="email" 
+                                        name="email"
+                                        onChange={this.handleChange} 
+                                    />
+                                </FormControl>
+                                <FormControl margin="normal" required fullWidth>
+                                    <InputLabel htmlFor="password">Password</InputLabel>
+                                    <Input 
+                                        name="password" 
+                                        type="password" 
+                                        id="password"
+                                        onChange={this.handleChange} 
+                                    />
+                                </FormControl>
+                                {this.renderRedirect()}
+                                <Button
+                                    type="submit"
+                                    fullWidth
+                                    variant="contained"
+                                    color="primary"
+                                    className={classes.submit}
+                                >
+                                    Sign in
+                                </Button>
+                                <Typography 
+                                    className={classes.typography}
+                                    onClick={this.resetPassword}
+                                >
+                                    I don't remember my password.
+                                </Typography>
+                                <Typography 
+                                    className={classes.typography}
+                                    onClick={this.showRegisterPanel}
+                                >
+                                    I don't have account yet.
+                                </Typography>
+                            </form>
+                        </Paper>
+                    </main>
+                ) : < SignUp />
         );
     }
 }

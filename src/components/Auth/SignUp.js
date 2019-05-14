@@ -11,6 +11,7 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import withStyles from '@material-ui/core/styles/withStyles';
 import firebase from 'firebase';
+import { Redirect } from 'react-router-dom'
 
 const styles = theme => ({
     main: {
@@ -32,6 +33,13 @@ const styles = theme => ({
     submit: {
         marginTop: theme.spacing.unit * 3,
     },
+    typography: {
+        marginTop: theme.spacing.unit * 2,
+        textAlign: 'center',
+        color: 'rgb(130, 181, 201)',
+        cursor: 'pointer',
+        fontSize: '1.3rem'
+    }
 });
 
 class SignUp extends React.Component {
@@ -43,6 +51,18 @@ class SignUp extends React.Component {
         city: '',
         phone: ''
     };
+
+    setRedirect = () => {
+        this.setState({
+            redirect: true
+        })
+    }
+
+    renderRedirect = () => {
+        if (this.state.redirect) {
+            return <Redirect to='/user-panel'/>
+        }
+    }
 
     handleChange = (event) => {
         this.setState({
@@ -70,7 +90,9 @@ class SignUp extends React.Component {
                         phone,
                         uid: value.user.uid
                     })
-                alert('Registered') })
+                alert('Registered') 
+            })
+            .then(this.setRedirect)
             .catch(error => { alert(error.message) })
     };
 
@@ -150,6 +172,7 @@ class SignUp extends React.Component {
                             <Input 
                                 name="password" type="password" id="password__sign-up" autoComplete="current-password" value={this.state.password} onChange={this.handleChange} />
                         </FormControl>
+                        {this.renderRedirect()}
                         <Button
                             type="submit"
                             fullWidth
@@ -159,6 +182,12 @@ class SignUp extends React.Component {
                         >
                             Register
                         </Button>
+                        <Typography 
+                            className={classes.typography}
+                            onClick={() => window.location.reload()}
+                        >
+                            I have account already.
+                        </Typography>
                     </form>
                 </Paper>
             </main>
