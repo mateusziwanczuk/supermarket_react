@@ -65,9 +65,32 @@ class Basket extends React.Component {
 														{product.title}
 													</td>
 													<td className="table__center__content td2">
-														<span className="basket__product__quantity__button" id="product.id">-</span>
-														<span className="basket__product__quantity" id="product.id">1</span>
-														<span className="basket__product__quantity__button" id="product.id">+</span>
+														<span 
+															className="basket__product__quantity__button" 
+															id={ `${product.id}--` }
+															onClick={() => {
+																if (document.getElementById(`${product.id}qty`).innerHTML > 1) {
+																	document.getElementById(`${product.id}qty`).innerHTML--
+																}
+															}}
+														>
+															-
+														</span>
+														<span 
+															className="basket__product__quantity" 
+															id={ `${product.id}qty` }
+														>
+															1
+														</span>
+														<span 
+															className="basket__product__quantity__button" 
+															id={ `${product.id}++` }
+															onClick={() => {
+																document.getElementById(`${product.id}qty`).innerHTML++
+															}}
+														>
+															+
+														</span>
 													</td>
 													<td className="table__center__content td3">$ {product.price.toFixed(2)}</td>
 											</tr>
