@@ -12,13 +12,14 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import withStyles from '@material-ui/core/styles/withStyles';
-import { Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom';
 
 const styles = theme => ({
     main: {
         [theme.breakpoints.up(400 + theme.spacing.unit * 3 * 2)]: {
             width: 400
-        }
+        },
+        margin: '27vh auto',
     },
     paper: {
         marginTop: theme.spacing.unit,
