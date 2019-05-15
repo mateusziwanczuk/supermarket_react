@@ -116,13 +116,18 @@
     }
 
 .basket__container__summary {
+    margin: 0 auto;
+    padding: 0 0rem 0 6.2rem;
+    width: 60%;
     display: flex;
     justify-content: flex-end;
-    margin: 0 auto;
-    width: 64.5%;
 }
 
     .basket__container__summary span {
+        padding-right: 2rem;
+    }
+
+    .basket__container__summary p {
         background: rgba(255, 255, 255, 0.555);
         border: 1px solid #d3d3d3;
         border-radius: 0 0 25px 25px;
@@ -133,7 +138,7 @@
         font-weight: bold;
         padding: 1rem 3rem;
         text-align: center;
-        width: 32%;
+        width: 30%;
 
     }
 

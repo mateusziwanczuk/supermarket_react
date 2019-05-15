@@ -99,21 +99,20 @@ class Basket extends React.Component {
 										</tr>
 									)
 								})
-								: null
-							}
+							: null }
 						</tbody>
 					</table>
 				</div>
 				<div className="basket__container__summary">
-					<span>
-						Total:&nbsp;&nbsp;&nbsp;
+					<p>
+						<span>Total:</span>
 							{this.state.basketProducts 
 								? ' $' + this.state.basketProducts
 											.map(basketProduct => basketProduct.price * basketProduct.qty)
 											.reduce((a,b) => a + b, 0)
 											.toFixed(2)
 								: ' $ 0.00'}
-					</span>
+					</p>
 				</div>
 				<div className="basket__container__button">
 					{this.renderRedirect()}
