@@ -48,54 +48,57 @@ class Basket extends React.Component {
 					<table>
 						<tbody>
 							{this.state.basketProducts ?
-									this.state.basketProducts.map((product) => {
-										return (
-											<tr key={product.title}>
-													<td className="td1">
-														<span className="basket__delete__product" 
-															onClick={() => {
-																let basketProducts = this.state.basketProducts.filter(
-																	basketProduct => basketProduct.id !== product.id
-																)
-																localStorage.setItem('basketProducts', JSON.stringify(basketProducts)) 
-																this.setState({basketProducts}) 
-															}}>
-															✘
-														</span>
-														{product.title}
-													</td>
-													<td className="table__center__content td2">
-														<span 
-															className="basket__product__quantity__button" 
-															id={ `${product.id}--` }
-															onClick={() => {
-																if (document.getElementById(`${product.id}qty`).innerHTML > 1) {
-																	document.getElementById(`${product.id}qty`).innerHTML--
-																}
-															}}
-														>
-															-
-														</span>
-														<span 
-															className="basket__product__quantity" 
-															id={ `${product.id}qty` }
-														>
-															1
-														</span>
-														<span 
-															className="basket__product__quantity__button" 
-															id={ `${product.id}++` }
-															onClick={() => {
-																document.getElementById(`${product.id}qty`).innerHTML++
-															}}
-														>
-															+
-														</span>
-													</td>
-													<td className="table__center__content td3">$ {product.price.toFixed(2)}</td>
-											</tr>
-										);
-									}) 
+								this.state.basketProducts.map((product) => {
+									return (
+										<tr key={product.title}>
+												<td className="td1">
+													<span className="basket__delete__product" 
+														onClick={() => {
+															let basketProducts = this.state.basketProducts.filter(
+																basketProduct => basketProduct.id !== product.id
+															)
+															localStorage.setItem('basketProducts', JSON.stringify(basketProducts)) 
+															this.setState({basketProducts}) 
+														}}>
+														✘
+													</span>
+													{product.title}
+												</td>
+												<td className="table__center__content td2">
+													<span 
+														className="basket__product__quantity__button" 
+														id={ `${product.id}--` }
+														onClick={() => {
+															if (document.getElementById(`${product.id}qty`).innerHTML > 1) {
+																product.qty--
+																this.setState({})
+														}}}
+													>
+														-
+													</span>
+													<span 
+														className="basket__product__quantity" 
+														id={ `${product.id}qty` }
+													>
+														{product.qty}
+													</span>
+													<span 
+														className="basket__product__quantity__button" 
+														id={ `${product.id}++` }
+														onClick={() => {
+															product.qty++
+															this.setState({})
+														}}
+													>
+														+
+													</span>
+												</td>
+												<td className="table__center__content td3">
+													$ {(product.price * product.qty).toFixed(2)}
+												</td>
+										</tr>
+									)
+								})
 								: null
 							}
 						</tbody>
@@ -106,7 +109,7 @@ class Basket extends React.Component {
 						Total:&nbsp;&nbsp;&nbsp;
 							{this.state.basketProducts 
 								? ' $' + this.state.basketProducts
-											.map(basketProduct => basketProduct.price)
+											.map(basketProduct => basketProduct.price * basketProduct.qty)
 											.reduce((a,b) => a + b, 0)
 											.toFixed(2)
 								: ' $ 0.00'}
