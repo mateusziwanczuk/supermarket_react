@@ -1,13 +1,13 @@
 {
   "main.css": "/supermarket_react/static/css/main.6b47c67d.chunk.css",
-  "main.js": "/supermarket_react/static/js/main.c6568896.chunk.js",
-  "main.js.map": "/supermarket_react/static/js/main.c6568896.chunk.js.map",
+  "main.js": "/supermarket_react/static/js/main.be99110a.chunk.js",
+  "main.js.map": "/supermarket_react/static/js/main.be99110a.chunk.js.map",
   "runtime~main.js": "/supermarket_react/static/js/runtime~main.abfb6a87.js",
   "runtime~main.js.map": "/supermarket_react/static/js/runtime~main.abfb6a87.js.map",
-  "static/js/2.c7ba22bb.chunk.js": "/supermarket_react/static/js/2.c7ba22bb.chunk.js",
-  "static/js/2.c7ba22bb.chunk.js.map": "/supermarket_react/static/js/2.c7ba22bb.chunk.js.map",
+  "static/js/2.b52710fe.chunk.js": "/supermarket_react/static/js/2.b52710fe.chunk.js",
+  "static/js/2.b52710fe.chunk.js.map": "/supermarket_react/static/js/2.b52710fe.chunk.js.map",
   "index.html": "/supermarket_react/index.html",
-  "precache-manifest.88eea33f39d7fb88db12448e5b5bba9c.js": "/supermarket_react/precache-manifest.88eea33f39d7fb88db12448e5b5bba9c.js",
+  "precache-manifest.a53771748ac707e8afa7fa911d2607d3.js": "/supermarket_react/precache-manifest.a53771748ac707e8afa7fa911d2607d3.js",
   "service-worker.js": "/supermarket_react/service-worker.js",
   "static/css/main.6b47c67d.chunk.css.map": "/supermarket_react/static/css/main.6b47c67d.chunk.css.map"
 }
