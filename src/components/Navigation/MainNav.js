@@ -100,7 +100,10 @@ class MainNav extends React.Component {
 	}
 
 	onNavItemSelect = () => {
-		this.setState({ selectedPath: window.location.pathname });
+		this.setState({ 
+			selectedPath: window.location.pathname,
+			isNavOpen: !this.state.isNavOpen 
+		});
 	};
 
 	handleOpenNav = () => {
