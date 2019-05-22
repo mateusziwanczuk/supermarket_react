@@ -17,7 +17,9 @@ class UserData extends React.Component {
                     authUser: user,
                     authUserId: user.uid,
                     authUserEmail: user.email,
-                    authUserRegistered: user.metadata.creationTime,
+                    authUserRegistered: user.metadata.creationTime
+                        .replace(/GMT/gi,'')
+                        .substring(4, user.metadata.creationTime.length -13),
                     authIsChecked: true,
                 })
             }
@@ -148,16 +150,19 @@ class UserData extends React.Component {
                                         value={this.state.user ? this.state.user.phone : ''}
                                         onChange={this.editPhoneNum}>
                                     </input>
-                                    <div className="edit__buttons__container">
-                                        <div className="save__button">
-                                            <span onClick={this.editUserData}>Save</span>
-                                        </div>
-                                        <DeleteUser />
-                                    </div>
                                 </div>
                             }
                         </div>
                     </div>  
+                    {doInputsShow 
+                    ? <div className="edit__buttons__container">
+                        <div className="save__button">
+                            <span className="edit__button" onClick={this.editUserData}>Save</span>
+                        </div>
+                        <DeleteUser />
+                    </div>
+                    :  null
+                }
             </div>
         )
     }
