@@ -15,7 +15,6 @@ import { userPlus } from 'react-icons-kit/fa/userPlus';
 import { userTimes } from 'react-icons-kit/fa/userTimes';
 import { MdMenu } from "react-icons/md";
 import { withStyles } from "@material-ui/core/styles";
-import { red } from "@material-ui/core/colors";
 
 const Navigation = styled.div`
 	background: #0cadad;
@@ -138,7 +137,6 @@ class MainNav extends React.Component {
 				<NavLink 
 					to="/sign-in"
 					onClick={this.onNavItemSelect}
-					className={path === "/sign-in" ? classes.navItemSelected : null}
 				>
 					<IconCnt>
 						<Icon icon={icon} />
