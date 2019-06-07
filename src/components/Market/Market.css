@@ -4,8 +4,11 @@
 
 .market__container__filter {
     display: flex;
+    flex-wrap: wrap;
     height: 100%;
-    justify-content: center;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    width: 80%;
 }
 
 .market__container__filter h1 {
@@ -15,7 +18,6 @@
     color: #6cb8b8;    
     font-size: 4rem;
     letter-spacing: 1.3rem;
-    margin-right: 5rem;
     padding: 1rem 3rem;
     text-transform: uppercase;
 }
@@ -44,6 +46,7 @@
     border-radius: 10px 0 0 10px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
     margin: 5vh auto;
     max-height: 70vh;
     overflow: auto;
@@ -75,4 +78,26 @@
     color: #0cadad;
     cursor: pointer;
     padding-bottom: 1rem;
+}
+
+@media (max-width: 475px) {
+    .market__container__filter h1 {
+        font-size: 3rem;
+        letter-spacing: 1.3rem;
+        padding: 1rem 3rem;
+    }
+    .market__container__filter form {
+        text-align: center;
+    }
+    .market__container__filter input {
+        border-radius: 10px;
+        padding: 1.5rem;
+        width: 55%;
+    }
+    .market__container__filter select {
+        border-radius: 10px;
+        margin: 1rem;
+        padding: 1.5rem;
+        width: 65%;
+    }
 }
