@@ -6,11 +6,11 @@ Author: [Mateusz Iwańczuk](https://www.linkedin.com/in/mateusziwanczuk/)
 
 ## Screenshots
 
-    ![screenshots](/readme_PrtSc/screen1.png?raw=true "Screenshot")
+> ![screenshots](/readme_PrtSc/screen1.png?raw=true "Screenshot")
 
-    ![screenshots](/readme_PrtSc/screen2.png?raw=true "Screenshot")
+> ![screenshots](/readme_PrtSc/screen2.png?raw=true "Screenshot")
 
-    ![screenshots](/readme_PrtSc/screen3.png?raw=true "Screenshot")
+> ![screenshots](/readme_PrtSc/screen3.png?raw=true "Screenshot")
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
